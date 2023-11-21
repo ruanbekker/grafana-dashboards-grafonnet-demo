@@ -187,12 +187,33 @@ Output:
 Grafana Dashboard API Documentation:
 - https://grafana.com/docs/grafana/latest/developers/http_api/dashboard/
 
-We will create a dashboard from the json that we created in `target/output.json`:
+We will create a dashboard from the json that we created in `target/output.json`.
+
+First we need to add the dashboard json under the dashboard key and enable overwrites:
+
+```bash
+payload="{\"dashboard\": $(jq . target/output.json), \"overwrite\": true}"
+```
+
+The we can create the dashboard using an API call:
 
 ```bash
 curl -H "Content-Type: application/json" \
      -H "Authorization: Bearer $TOKEN" \
-     -XPOST http://localhost:3000/api/dashboards/db -d @target/output.json
+     -XPOST http://192.168.0.20:3000/api/dashboards/db -d "${payload}"
+```
+
+Response:
+
+```json
+{
+    "id":11,
+    "slug":"basic-dashboard",
+    "status":"success",
+    "uid":"basic-grafonnet-example",
+    "url":"/d/basic-grafonnet-example/basic-dashboard",
+    "version":1
+}
 ```
 
 </details>
