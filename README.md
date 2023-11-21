@@ -117,6 +117,86 @@ If you want to test this out you can use my Grafana repository to run grafana an
 
 - https://github.com/ruanbekker/docker-monitoring-stack-gpnc
 
+<details>
+  <summary>Grafana Stack Setup on Docker:</summary>
+
+### Boot the grafana stack
+
+Clone the source:
+
+```bash
+git clone https://github.com/ruanbekker/docker-monitoring-stack-gpnc
+cd docker-monitoring-stack-gpnc
+```
+
+Start the containers:
+
+```bash
+make up
+```
+
+Grafana will be available on http://localhost:3000 with no credentials.
+
+### Create a Service Account
+
+The steps can be found from the Grafana Service Accounts Documentation:
+- https://grafana.com/docs/grafana/latest/administration/service-accounts/
+
+but in short, create the service account:
+
+- On Grafana select "Administration" on the left side.
+- Select "Service Accounts".
+- Select "Add service account".
+- Set a "Display name".
+- Click create.
+
+Add a token to the service account:
+
+- Select the "Administration" on the left side.
+- Select "Service Accounts".
+- Select the service account where we want to associate the token.
+- Select "Add service account token".
+- Enter the name for the token.
+- Click "Generate token" and save this token somewhere safe.
+
+Assign a role to the service account:
+
+- On Grafana select "Administration" on the left side.
+- Select "Service Accounts".
+- Select the service account to which you want to assign a role. 
+- Assign a role using the role picker, in my case im using admin for demonstration.
+
+Test the token, in my case I've assigned it to a variable `TOKEN`:
+
+```bash
+curl -s -H "Authorization: Bearer $TOKEN" -XGET http://localhost:3000/api/access-control/user/permissions | jq -r '."dashboards:create"'
+```
+
+Output:
+
+```json
+[
+  "folders:uid:general",
+  "folders:*",
+  "folders:*"
+]
+```
+
+### Create the Dashboard via API
+
+Grafana Dashboard API Documentation:
+- https://grafana.com/docs/grafana/latest/developers/http_api/dashboard/
+
+We will create a dashboard from the json that we created in `target/output.json`:
+
+```bash
+curl -H "Content-Type: application/json" \
+     -H "Authorization: Bearer $TOKEN" \
+     -XPOST http://localhost:3000/api/dashboards/db -d @target/output.json
+```
+
+</details>
+
 ## Resources
 
 - https://github.com/grafana/grafonnet
