@@ -93,6 +93,12 @@ grafana.dashboard.new(
 
 </details>
 
+Download the dependencies with jsonnet-builder:
+
+```bash
+jb install
+```
+
 Compile the dashboards by specifying the path to additional library search directory `-J` the main jsonnet file and the output of where we want to generate the compiled json file:
 
 ```bash
