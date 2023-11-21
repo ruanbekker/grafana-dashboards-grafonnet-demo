@@ -200,7 +200,7 @@ The we can create the dashboard using an API call:
 ```bash
 curl -H "Content-Type: application/json" \
      -H "Authorization: Bearer $TOKEN" \
-     -XPOST http://192.168.0.20:3000/api/dashboards/db -d "${payload}"
+     -XPOST http://localhost:3000/api/dashboards/db -d "${payload}"
 ```
 
 Response:
