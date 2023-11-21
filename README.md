@@ -105,7 +105,7 @@ Compile the dashboards by specifying the path to additional library search direc
 jsonnet -J ./vendor main.jsonnet -o target/output.json
 ```
 
-When we inspect the `target/output.json`` we can see that the dashboard json was generated and we can now import it into Grafana.
+When we inspect the `target/output.json` we can see that the dashboard json was generated and we can now import it into Grafana.
 
 Screenshot:
 
