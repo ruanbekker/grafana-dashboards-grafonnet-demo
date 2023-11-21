@@ -9,7 +9,7 @@ Example generating Grafana Dashboards as Code using Grafonnet
 
 **Jsonnet** is a data templating language that is designed to organize and simplify complex json data. Jsonnet allows for functions, variables, conditionals and other programming constructs which are not present in standard json.
 
-Libsonnet files serve as libraries or modules within the jsonnet ecosystem. They are essentially Jsonnet files but are intended to be imported and reused across various other Jsonnet files.
+**Libsonnet** files serve as libraries or modules within the jsonnet ecosystem. They are essentially Jsonnet files but are intended to be imported and reused across various other Jsonnet files.
 
 The purposes of libsonnet files include:
 
@@ -50,4 +50,3 @@ If you want to test this out you can use my Grafana repository to run grafana an
 
 - https://github.com/grafana/grafonnet
 - https://github.com/google/jsonnet
-- 
