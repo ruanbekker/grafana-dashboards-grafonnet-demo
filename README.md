@@ -28,6 +28,71 @@ The purposes of libsonnet files include:
 
 ## Demo
 
+If you already have Go installed, you can skip this step
+
+<details>
+  <summary>Run a Go environment using docker:</summary>
+
+Run a go 1.18 environment using a docker container:
+
+```bash
+docker run -it golang:1.18-alpine sh
+apk add gcc musl-dev jsonnet git vim
+```
+
+</details>
+
+Install the jsonnet-builder:
+
+```bash
+go install -a github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb@latest
+```
+
+Since this repository already have the `jsonnetfile.json` present, you can **skip this step**, but if you wanted to initialize a new directory from scratch you can follow the next steps:
+
+<details>
+  <summary>(Optional) jsonnet-build initialize steps:</summary>
+
+
+In the directory where you want to initialize the jsonnetfile:
+
+```bash
+mkdir workspace && cd workspace
+```
+
+You can then initialize the jsonnetfile:
+
+```bash
+jb init
+```
+
+Which will create a `jsonnetfile.json`:
+
+```json
+{
+  "version": 1,
+  "dependencies": [],
+  "legacyImports": true
+}
+```
+
+After your dependencies have been defined you can install them by running:
+
+```bash
+jb install
+```
+
+To define a very basic dashboard, create a `dashboard.jsonnet`:
+
+```json
+local grafana = import 'grafonnet-v10.1.0/main.libsonnet';
+grafana.dashboard.new(
+    title='Slim Dashboard'
+)
+```
+
+</details>
+
 Compile the dashboards by specifying the path to additional library search directory `-J` the main jsonnet file and the output of where we want to generate the compiled json file:
 
 ```bash
