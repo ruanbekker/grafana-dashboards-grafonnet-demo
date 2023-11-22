@@ -11,6 +11,7 @@ g.dashboard.new('Basic Dashboard')
 + g.dashboard.withDescription(|||
   Dashboard generated with jsonnet
 |||)
++ g.dashboard.withTimezone('browser')
 + g.dashboard.graphTooltip.withSharedCrosshair()
 + g.dashboard.withVariables([
   variables.datasource,
