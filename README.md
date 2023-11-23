@@ -76,6 +76,12 @@ Which will create a `jsonnetfile.json`:
 }
 ```
 
+To add dependencies to your jsonnetfile:
+
+```bash
+jb install github.com/grafana/grafonnet/gen/grafonnet-latest@main
+```
+
 After your dependencies have been defined you can install them by running:
 
 ```bash
