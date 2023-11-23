@@ -227,6 +227,7 @@ Response:
 ## More Examples
 
 - [functions-and-variables](./examples/functions-and-variables/)
+- [module-example](./examples/module-example/)
 
 ## Resources
 
