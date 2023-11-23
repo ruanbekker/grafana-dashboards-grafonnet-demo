@@ -224,6 +224,10 @@ Response:
 
 </details>
 
+## More Examples
+
+- [functions-and-variables](./examples/functions-and-variables/)
+
 ## Resources
 
 - https://github.com/grafana/grafonnet
