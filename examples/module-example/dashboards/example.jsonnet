@@ -5,7 +5,8 @@ local queries = import '../lib/queries/main.libsonnet';
 local panels = import '../lib/panels/main.libsonnet';
 
 // Custom variables
-local dashboard_name = 'My Custom Dashboard';
+// local dashboard_name = 'My Custom Dashboard';
+local dashboard_name = std.extVar('GRAFANA_DASHBOARD_NAME');
 local dashboard_uid = 'my-custom-dashboard';
 local dashboard_description = 'Dashboard generated with jsonnet';
 local dashboard_timezone = 'browser';

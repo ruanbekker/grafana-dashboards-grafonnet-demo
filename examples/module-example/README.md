@@ -42,8 +42,8 @@ Install the dependencies:
 jb install
 ```
 
-Generate the dashboard:
+Generate the dashboard and optionally define the environment variable `GRAFANA_DASHBOARD_NAME`, to set the dashboard name using a environment variable else, the default value will be used:
 
 ```bash
-jsonnet -J ./vendor dashboards/example.jsonnet -o dashboard.json
+jsonnet --ext-str GRAFANA_DASHBOARD_NAME="${GRAFANA_DASHBOARD_NAME:-Default Dashboard Name}" -J ./vendor dashboards/example.jsonnet
 ```
