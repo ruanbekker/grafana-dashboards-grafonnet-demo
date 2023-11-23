@@ -1,2 +1,4 @@
-vendor/*
-jsonnetfile.lock.json
+.vscode/*
+**/jsonnetfile.lock.json
+**/target/*
+**/vendor/*
