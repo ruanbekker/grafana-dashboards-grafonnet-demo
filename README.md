@@ -91,7 +91,7 @@ jb install
 To define a very basic dashboard, create a `dashboard.jsonnet`:
 
 ```
-local grafana = import 'grafonnet-v10.1.0/main.libsonnet';
+local grafana = import 'grafonnet-latest/main.libsonnet';
 grafana.dashboard.new(
     title='Slim Dashboard'
 )
