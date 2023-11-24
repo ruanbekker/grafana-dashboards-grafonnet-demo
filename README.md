@@ -1,4 +1,7 @@
 # grafana-dashboards-grafonnet-demo
+
+![grafana-grafonnet-jsonnet](https://github.com/ruanbekker/grafana-dashboards-grafonnet-demo/assets/567298/127fe34b-4d10-4096-8c30-50a0c5cf5220)
+
 Example generating Grafana Dashboards as Code using Grafonnet
 
 ## What is Grafonnet
